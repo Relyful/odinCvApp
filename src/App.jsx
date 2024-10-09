@@ -3,10 +3,14 @@ import './App.css'
 import ModalForm from './components/cvForm'
 
 function App() {
-  
+  const [dialogOpen, setDialogOpen] = useState(true);
+
+  const handleClose = () => {
+    setDialogOpen(false)
+  }
   return (
     <>
-      <ModalForm />
+      <ModalForm  onClose={handleClose} dialogOpen={dialogOpen} />
     </>
   )
 }
