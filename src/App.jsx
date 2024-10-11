@@ -15,11 +15,21 @@ function App() {
   const [jobName, setJobName] = useState("Random Name Security");
   const [jobTitle, setJobTitle] = useState("Guard");
   const [jobResponsibility, setJobResponsibility] = useState("Guarding");
-  const [jobStartDate, setJobStartDate] = useState(new Date(2014, 6, 1));
+  const [jobStartDate, setJobStartDate] = useState('2014-07-01');
 
   const handleClose = () => {
     setDialogOpen(false);
   };
+
+  const handleClickClose = (e) => {
+    if (e.target.className === 'formContainer') {
+      setDialogOpen(false)
+    }
+  }
+
+  const handleReset = () => {
+    window.location.reload(false);
+  }
 
   const handleOpen = () => {
     setDialogOpen(true);
@@ -29,46 +39,48 @@ function App() {
     setName(e.target.value);
   };
 
-  const handleEmail = (email) => {
-    setEmail(email);
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
   };
 
-  const handlePhone = (phone) => {
-    setPhone(phone);
+  const handlePhone = (e) => {
+    setPhone(e.target.value);
   };
 
-  const handleSchoolName = (schoolName) => {
-    setSchoolName(schoolName);
+  const handleSchoolName = (e) => {
+    setSchoolName(e.target.value);
   };
 
-  const handleSchoolTitle = (schoolTitle) => {
-    setSchoolTitle(schoolTitle);
+  const handleSchoolTitle = (e) => {
+    setSchoolTitle(e.target.value);
   };
 
-  const handleSchoolYear = (schoolYear) => {
-    setSchoolYear(schoolYear);
+  const handleSchoolYear = (e) => {
+    setSchoolYear(e.target.value);
   };
 
-  const handleJobName = (jobName) => {
-    setJobName(jobName);
+  const handleJobName = (e) => {
+    setJobName(e.target.value);
   };
 
-  const handleJobTitle = (jobTitle) => {
-    setJobTitle(jobTitle);
+  const handleJobTitle = (e) => {
+    setJobTitle(e.target.value);
   };
 
-  const handleJobRespo = (jobRespo) => {
-    setJobResponsibility(jobRespo);
+  const handleJobRespo = (e) => {
+    setJobResponsibility(e.target.value);
   };
 
-  const handleJobStartDate = (jobStartDate) => {
-    setJobStartDate(jobStartDate);
+  const handleJobStartDate = (e) => {
+    setJobStartDate(e.target.value);
+    
   };
 
   return (
     <>
       <ModalForm
         onClose={handleClose}
+        onClickClose={handleClickClose}
         dialogOpen={dialogOpen}
         handleName={handleName}
         handleEmail={handleEmail}
@@ -94,6 +106,9 @@ function App() {
       <button type="button" onClick={handleOpen}>
         Open Form
       </button>
+      <button type="button" onClick={handleReset}>
+          Reset
+        </button>
       <h1>{name}</h1>
       <ul>
         <li>{email}</li>
@@ -104,7 +119,7 @@ function App() {
         <li>{jobName}</li>
         <li>{jobTitle}</li>
         <li>{jobResponsibility}</li>
-        <li>{jobStartDate.toLocaleString().split(',')[0]}</li>
+        <li>{jobStartDate.toLocaleString().split(",")[0]}</li>
       </ul>
     </>
   );
