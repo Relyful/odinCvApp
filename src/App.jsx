@@ -3,7 +3,7 @@ import "./App.css";
 import ModalForm from "./components/cvForm";
 
 function App() {
-  const [dialogOpen, setDialogOpen] = useState(true);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const [name, setName] = useState("John Doe");
   const [email, setEmail] = useState("john.doe@gmail.com");
   const [phone, setPhone] = useState("+420 123 456");
@@ -25,8 +25,8 @@ function App() {
     setDialogOpen(true);
   };
 
-  const handleName = (name) => {
-    setName(name);
+  const handleName = (e) => {
+    setName(e.target.value);
   };
 
   const handleEmail = (email) => {
@@ -80,6 +80,16 @@ function App() {
         handleJobTitle={handleJobTitle}
         handleJobRespo={handleJobRespo}
         handleJobStartDate={handleJobStartDate}
+        nameVal={name}
+        emailVal={email}
+        phoneVal={phone}
+        schoolNameVal={schoolName}
+        schoolTitleVal={schoolTitle}
+        schoolYearVal={schoolYear}
+        jobNameVal={jobName}
+        jobTitleVal={jobTitle}
+        jobRespoVal={jobResponsibility}
+        jobStartDateVal={jobStartDate}
       />
       <button type="button" onClick={handleOpen}>
         Open Form
