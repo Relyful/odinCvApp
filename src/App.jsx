@@ -131,19 +131,47 @@ function App() {
   };
 
   const handleJobName = (e) => {
-    setJobName(e.target.value);
+    const id = e.target.parentElement.parentElement.dataset.id;
+    setJob((prevJob) =>
+      prevJob.map((job) =>
+        job.id === id
+          ? { ...job, name: e.target.value }
+          : job
+      )
+    );
   };
 
   const handleJobTitle = (e) => {
-    setJobTitle(e.target.value);
+    const id = e.target.parentElement.parentElement.dataset.id;
+    setJob((prevJob) =>
+      prevJob.map((job) =>
+        job.id === id
+          ? { ...job, title: e.target.value }
+          : job
+      )
+    );
   };
 
   const handleJobRespo = (e) => {
-    setJobResponsibility(e.target.value);
+    const id = e.target.parentElement.parentElement.dataset.id;
+    setJob((prevJob) =>
+      prevJob.map((job) =>
+        job.id === id
+          ? { ...job, responsibility: e.target.value }
+          : job
+      )
+    );
   };
 
   const handleJobStartDate = (e) => {
-    setJobStartDate(e.target.value);
+    const id = e.target.parentElement.parentElement.dataset.id;
+    setJob((prevJob) =>
+      prevJob.map((job) =>
+        job.id === id
+          ? { ...job, startDate: e.target.value }
+          : job
+      )
+    );
   };
 
   const addEmptySchool = (e) => {
