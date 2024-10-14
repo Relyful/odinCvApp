@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import ModalForm from "./components/cvForm";
+import School from "./components/school";
 
 function SchoolList({ school }) {
   const list = school.map(school => {
@@ -44,6 +45,7 @@ function App() {
   };
 
   const handleClickClose = (e) => {
+    e.preventDefault();
     if (e.target.className === "formContainer") {
       setDialogOpen(false);
     }
@@ -69,26 +71,29 @@ function App() {
     setPhone(e.target.value);
   };
 
-  const handleSchoolName = (id, e) => {
+  const handleSchoolName = (e) => {
+    const id = e.target.parentElement.parentElement.dataset.id
     setSchool(prevSchool =>
       prevSchool.map((school) =>
-        school.id === id ? { ...school, schoolName: e.target.value } : school
+        school.schoolId === id ? { ...school, schoolName: e.target.value } : school
       )
     );
   };
 
-  const handleSchoolTitle = (id, e) => {
+  const handleSchoolTitle = (e) => {
+    const id = e.target.parentElement.parentElement.dataset.id
     setSchool(prevSchool =>
       prevSchool.map((school) =>
-        school.id === id ? { ...school, schoolTitle: e.target.value } : school
+        school.schoolId === id ? { ...school, schoolTitle: e.target.value } : school
       )
     );
   };
 
-  const handleSchoolYear = (id, e) => {
+  const handleSchoolYear = (e) => {
+    const id = e.target.parentElement.parentElement.dataset.id
     setSchool(prevSchool =>
       prevSchool.map((school) =>
-        school.id === id ? { ...school, schoolYear: e.target.value } : school
+        school.schoolId === id ? { ...school, schoolYear: e.target.value } : school
       )
     );
   };
@@ -109,6 +114,11 @@ function App() {
     setJobStartDate(e.target.value);
   };
 
+  const addEmptySchool = (e) => {
+    e.preventDefault();
+    setSchool([...school,new School()]);
+  }
+
   return (
     <>
       <ModalForm
@@ -121,6 +131,7 @@ function App() {
         handleSchoolName={handleSchoolName}
         handleSchoolTitle={handleSchoolTitle}
         handleSchoolYear={handleSchoolYear}
+        addEmptySchool={addEmptySchool}
         handleJobName={handleJobName}
         handleJobTitle={handleJobTitle}
         handleJobRespo={handleJobRespo}

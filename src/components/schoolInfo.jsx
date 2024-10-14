@@ -5,7 +5,7 @@ export default function SchoolInfo({
   handleSchoolYear,
 }) {
   const schoolList = school.map((school) => {
-    return <li key={school.id}>
+    return <li key={school.schoolId} data-id={school.schoolId}>
       <div className="formInput">
         <label htmlFor="schoolName">School name: </label>
         <input

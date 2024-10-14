@@ -11,6 +11,7 @@ export default function ModalForm({
   handleSchoolName,
   handleSchoolTitle,
   handleSchoolYear,
+  addEmptySchool,
   handleJobName,
   handleJobTitle,
   handleJobRespo,
@@ -74,6 +75,7 @@ export default function ModalForm({
             handleSchoolTitle={handleSchoolTitle}
             handleSchoolYear={handleSchoolYear}
           />
+          <button onClick={addEmptySchool}>New School</button>
         </fieldset>
         <fieldset>
           <legend>Practical Experience</legend>
