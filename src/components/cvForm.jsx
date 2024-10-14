@@ -18,9 +18,7 @@ export default function ModalForm({
   nameVal,
   emailVal,
   phoneVal,
-  schoolNameVal,
-  schoolTitleVal,
-  schoolYearVal,
+  school,
   jobNameVal,
   jobTitleVal,
   jobRespoVal,
@@ -71,11 +69,9 @@ export default function ModalForm({
         <fieldset>
           <legend>Educational Experience</legend>
           <SchoolInfo
-            schoolNameVal={schoolNameVal}
+            school={school}
             handleSchoolName={handleSchoolName}
-            schoolTitleVal={schoolTitleVal}
             handleSchoolTitle={handleSchoolTitle}
-            schoolYearVal={schoolYearVal}
             handleSchoolYear={handleSchoolYear}
           />
         </fieldset>

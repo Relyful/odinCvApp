@@ -1,20 +1,18 @@
 export default function SchoolInfo({
-  schoolNameVal,
+  school,
   handleSchoolName,
-  schoolTitleVal,
   handleSchoolTitle,
-  schoolYearVal,
   handleSchoolYear,
 }) {
-  return (
-    <>
+  const schoolList = school.map((school) => {
+    return <li key={school.id}>
       <div className="formInput">
         <label htmlFor="schoolName">School name: </label>
         <input
           type="text"
           name="schoolName"
           id="schoolName"
-          defaultValue={schoolNameVal}
+          defaultValue={school.schoolName}
           onChange={handleSchoolName}
         />
       </div>
@@ -24,7 +22,7 @@ export default function SchoolInfo({
           type="text"
           name="schoolTitle"
           id="schoolTitle"
-          value={schoolTitleVal}
+          value={school.schoolTitle}
           onChange={handleSchoolTitle}
         />
       </div>
@@ -34,10 +32,12 @@ export default function SchoolInfo({
           type="text"
           name="schoolYear"
           id="schoolYear"
-          value={schoolYearVal}
+          value={school.schoolYear}
           onChange={handleSchoolYear}
         />
       </div>
-    </>
-  );
+    </li>;
+  });
+
+  return <ul>{schoolList}</ul>
 }
