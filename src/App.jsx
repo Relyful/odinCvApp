@@ -12,7 +12,7 @@ function App() {
       schoolName: "School of Internet",
       schoolTitle: "Mechanic of computer Networks",
       schoolYear: "2009",
-      schoolId: crypto.randomUUID()
+      schoolId: crypto.randomUUID(),
     },
   ]);
   const [schoolName, setSchoolName] = useState("School of Internet");
@@ -55,8 +55,12 @@ function App() {
     setPhone(e.target.value);
   };
 
-  const handleSchoolName = (e) => {
-    setSchoolName(e.target.value);
+  const handleSchoolName = (id, e) => {
+    setSchool( prevSchool =>
+      prevSchool.map((school) =>
+        school.id === id ? { ...school, schoolName: e.target.value } : school
+      )
+    );
   };
 
   const handleSchoolTitle = (e) => {
