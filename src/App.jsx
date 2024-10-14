@@ -56,19 +56,27 @@ function App() {
   };
 
   const handleSchoolName = (id, e) => {
-    setSchool( prevSchool =>
+    setSchool(prevSchool =>
       prevSchool.map((school) =>
         school.id === id ? { ...school, schoolName: e.target.value } : school
       )
     );
   };
 
-  const handleSchoolTitle = (e) => {
-    setSchoolTitle(e.target.value);
+  const handleSchoolTitle = (id, e) => {
+    setSchool(prevSchool =>
+      prevSchool.map((school) =>
+        school.id === id ? { ...school, schoolTitle: e.target.value } : school
+      )
+    );
   };
 
-  const handleSchoolYear = (e) => {
-    setSchoolYear(e.target.value);
+  const handleSchoolYear = (id, e) => {
+    setSchool(prevSchool =>
+      prevSchool.map((school) =>
+        school.id === id ? { ...school, schoolYear: e.target.value } : school
+      )
+    );
   };
 
   const handleJobName = (e) => {
