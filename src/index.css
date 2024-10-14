@@ -75,3 +75,7 @@ textarea:not([rows]) {
 }
 
 /* CUSTOM CSS HERE */
+
+li {
+  list-style: none;
+}

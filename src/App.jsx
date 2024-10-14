@@ -4,16 +4,16 @@ import ModalForm from "./components/cvForm";
 import School from "./components/school";
 
 function SchoolList({ school }) {
-  const list = school.map(school => {
-    return <li key={school.schoolId}>
-      <p>{school.schoolName}</p>
-      <p>{school.schoolTitle}</p>
-      <p>{school.schoolYear}</p>
-    </li>
-  })
-  return (
-    <>{list}</>
-  )
+  const list = school.map((school) => {
+    return (
+      <li key={school.schoolId}>
+        <p>{school.schoolName}</p>
+        <p>{school.schoolTitle}</p>
+        <p>{school.schoolYear}</p>
+      </li>
+    );
+  });
+  return <>{list}</>;
 }
 
 function App() {
@@ -22,23 +22,27 @@ function App() {
   const [email, setEmail] = useState("john.doe@gmail.com");
   const [phone, setPhone] = useState("+420 123 456");
   const [school, setSchool] = useState([
-      {
-        schoolName: "School of Internet",
-        schoolTitle: "Mechanic of computer Networks",
-        schoolYear: "2009",
-        schoolId: crypto.randomUUID(),
-      },
-      {
-        schoolName: "School of Pwnternet",
-        schoolTitle: "Mechanic of computer Hackworks",
-        schoolYear: "1337",
-        schoolId: crypto.randomUUID(),
-      },
-    ]);
-  const [jobName, setJobName] = useState("Random Name Security");
-  const [jobTitle, setJobTitle] = useState("Guard");
-  const [jobResponsibility, setJobResponsibility] = useState("Guarding");
-  const [jobStartDate, setJobStartDate] = useState("2014-07-01");
+    {
+      schoolName: "School of Internet",
+      schoolTitle: "Mechanic of computer Networks",
+      schoolYear: "2009",
+      schoolId: crypto.randomUUID(),
+    },
+    {
+      schoolName: "School of Pwnternet",
+      schoolTitle: "Mechanic of computer Hackworks",
+      schoolYear: "1337",
+      schoolId: crypto.randomUUID(),
+    },
+  ]);
+  const [job, setJob] = useState([
+    {
+      name: 'Random Name Security',
+      title: 'Guard',
+      responsibility: 'Guarding',
+      startDate: '2014-07-01',
+    },
+  ]);
 
   const handleClose = () => {
     setDialogOpen(false);
@@ -72,28 +76,34 @@ function App() {
   };
 
   const handleSchoolName = (e) => {
-    const id = e.target.parentElement.parentElement.dataset.id
-    setSchool(prevSchool =>
+    const id = e.target.parentElement.parentElement.dataset.id;
+    setSchool((prevSchool) =>
       prevSchool.map((school) =>
-        school.schoolId === id ? { ...school, schoolName: e.target.value } : school
+        school.schoolId === id
+          ? { ...school, schoolName: e.target.value }
+          : school
       )
     );
   };
 
   const handleSchoolTitle = (e) => {
-    const id = e.target.parentElement.parentElement.dataset.id
-    setSchool(prevSchool =>
+    const id = e.target.parentElement.parentElement.dataset.id;
+    setSchool((prevSchool) =>
       prevSchool.map((school) =>
-        school.schoolId === id ? { ...school, schoolTitle: e.target.value } : school
+        school.schoolId === id
+          ? { ...school, schoolTitle: e.target.value }
+          : school
       )
     );
   };
 
   const handleSchoolYear = (e) => {
-    const id = e.target.parentElement.parentElement.dataset.id
-    setSchool(prevSchool =>
+    const id = e.target.parentElement.parentElement.dataset.id;
+    setSchool((prevSchool) =>
       prevSchool.map((school) =>
-        school.schoolId === id ? { ...school, schoolYear: e.target.value } : school
+        school.schoolId === id
+          ? { ...school, schoolYear: e.target.value }
+          : school
       )
     );
   };
@@ -116,8 +126,8 @@ function App() {
 
   const addEmptySchool = (e) => {
     e.preventDefault();
-    setSchool([...school,new School()]);
-  }
+    setSchool([...school, new School()]);
+  };
 
   return (
     <>
