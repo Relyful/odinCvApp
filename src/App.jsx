@@ -7,6 +7,14 @@ function App() {
   const [name, setName] = useState("John Doe");
   const [email, setEmail] = useState("john.doe@gmail.com");
   const [phone, setPhone] = useState("+420 123 456");
+  const [school, setSchool] = useState([
+    {
+      schoolName: "School of Internet",
+      schoolTitle: "Mechanic of computer Networks",
+      schoolYear: "2009",
+      schoolId: crypto.randomUUID()
+    },
+  ]);
   const [schoolName, setSchoolName] = useState("School of Internet");
   const [schoolTitle, setSchoolTitle] = useState(
     "Mechanic of Computer Networks"
@@ -15,21 +23,21 @@ function App() {
   const [jobName, setJobName] = useState("Random Name Security");
   const [jobTitle, setJobTitle] = useState("Guard");
   const [jobResponsibility, setJobResponsibility] = useState("Guarding");
-  const [jobStartDate, setJobStartDate] = useState('2014-07-01');
+  const [jobStartDate, setJobStartDate] = useState("2014-07-01");
 
   const handleClose = () => {
     setDialogOpen(false);
   };
 
   const handleClickClose = (e) => {
-    if (e.target.className === 'formContainer') {
-      setDialogOpen(false)
+    if (e.target.className === "formContainer") {
+      setDialogOpen(false);
     }
-  }
+  };
 
   const handleReset = () => {
     window.location.reload(false);
-  }
+  };
 
   const handleOpen = () => {
     setDialogOpen(true);
@@ -73,7 +81,6 @@ function App() {
 
   const handleJobStartDate = (e) => {
     setJobStartDate(e.target.value);
-    
   };
 
   return (
@@ -107,8 +114,8 @@ function App() {
         Open Form
       </button>
       <button type="button" onClick={handleReset}>
-          Reset
-        </button>
+        Reset
+      </button>
       <h1>{name}</h1>
       <ul>
         <li>{email}</li>

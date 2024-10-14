@@ -1,4 +1,5 @@
 import "./cvForm.css";
+import SchoolInfo from "./schoolInfo";
 
 export default function ModalForm({
   onClose,
@@ -69,36 +70,14 @@ export default function ModalForm({
         </fieldset>
         <fieldset>
           <legend>Educational Experience</legend>
-          <div className="formInput">
-            <label htmlFor="schoolName">School name: </label>
-            <input
-              type="text"
-              name="schoolName"
-              id="schoolName"
-              defaultValue={schoolNameVal}
-              onChange={handleSchoolName}
-            />
-          </div>
-          <div className="formInput">
-            <label htmlFor="schoolTitle">Title of Study: </label>
-            <input
-              type="text"
-              name="schoolTitle"
-              id="schoolTitle"
-              value={schoolTitleVal}
-              onChange={handleSchoolTitle}
-            />
-          </div>
-          <div className="formInput">
-            <label htmlFor="schoolYear">Year od Study: </label>
-            <input
-              type="text"
-              name="schoolYear"
-              id="schoolYear"
-              value={schoolYearVal}
-              onChange={handleSchoolYear}
-            />
-          </div>
+          <SchoolInfo
+            schoolNameVal={schoolNameVal}
+            handleSchoolName={handleSchoolName}
+            schoolTitleVal={schoolTitleVal}
+            handleSchoolTitle={handleSchoolTitle}
+            schoolYearVal={schoolYearVal}
+            handleSchoolYear={handleSchoolYear}
+          />
         </fieldset>
         <fieldset>
           <legend>Practical Experience</legend>
