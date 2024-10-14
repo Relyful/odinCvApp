@@ -71,8 +71,8 @@ function App() {
   };
 
   const handleClickClose = (e) => {
-    e.preventDefault();
     if (e.target.className === "formContainer") {
+      e.preventDefault();
       setDialogOpen(false);
     }
   };
