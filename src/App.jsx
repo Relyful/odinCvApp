@@ -16,6 +16,20 @@ function SchoolList({ school }) {
   return <>{list}</>;
 }
 
+function JobList({ job }) {
+  const list = job.map(job => {
+    return <li key={job.id}>
+      <p>{job.name}</p>
+      <p>{job.title}</p>
+      <p>{job.responsibility}</p>
+      <p>{job.startDate.toLocaleString().split(",")[0]}</p>
+    </li>
+  })
+  return (
+    <>{list}</>
+  )
+}
+
 function App() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [name, setName] = useState("John Doe");
@@ -41,6 +55,14 @@ function App() {
       title: 'Guard',
       responsibility: 'Guarding',
       startDate: '2014-07-01',
+      id: crypto.randomUUID(),
+    },
+    {
+      name: 'Random Name Company',
+      title: 'Tech',
+      responsibility: 'Teching',
+      startDate: '2017-07-01',
+      id: crypto.randomUUID(),
     },
   ]);
 
@@ -150,10 +172,7 @@ function App() {
         emailVal={email}
         phoneVal={phone}
         school={school}
-        jobNameVal={jobName}
-        jobTitleVal={jobTitle}
-        jobRespoVal={jobResponsibility}
-        jobStartDateVal={jobStartDate}
+        job={job}
       />
       <button type="button" onClick={handleOpen}>
         Open Form
@@ -166,10 +185,7 @@ function App() {
         <li>{email}</li>
         <li>{phone}</li>
         <SchoolList school={school} />
-        <li>{jobName}</li>
-        <li>{jobTitle}</li>
-        <li>{jobResponsibility}</li>
-        <li>{jobStartDate.toLocaleString().split(",")[0]}</li>
+        <JobList job={job} />
       </ul>
     </>
   );
