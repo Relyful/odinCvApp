@@ -18,3 +18,32 @@
 fieldset {
   padding: 10px;
 }
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.personalInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: rgb(0, 174, 255);
+  color: white;
+}
+
+.personalInfo h1 {
+  align-self: center;
+  font-size: 3em;
+}
+
+.contactInfo {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+h2 {
+  color: rgb(0, 174, 255);
+}

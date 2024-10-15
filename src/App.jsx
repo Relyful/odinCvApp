@@ -189,19 +189,28 @@ function App() {
           Reset
         </button>
       </div>
-      <cvWrapper>
+      <div className="cvWrapper">
         <div className="personalInfo">
           <h1>{name}</h1>
-          <li>{email}</li>
-          <li>{phone}</li>
+          <div className="contactInfo">
+            <p>{email}</p>
+            |
+            <p>{phone}</p>
+          </div>
         </div>
-        <ul className="schoolInfo">
-          <SchoolList school={school} />
-        </ul>
-        <ul className="jobInfo">
-          <JobList job={job} />
-        </ul>
-      </cvWrapper>
+        <div className="schoolInfo">
+          <h2>Education</h2>
+          <ul>
+            <SchoolList school={school} />
+          </ul>
+        </div>
+        <div className="jobInfo">
+          <h2>Work Experience</h2>
+          <ul>
+            <JobList job={job} />
+          </ul>
+        </div>
+      </div>
     </>
   );
 }
