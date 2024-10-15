@@ -17,17 +17,17 @@ function SchoolList({ school }) {
 }
 
 function JobList({ job }) {
-  const list = job.map(job => {
-    return <li key={job.id}>
-      <p>{job.name}</p>
-      <p>{job.title}</p>
-      <p>{job.responsibility}</p>
-      <p>{job.startDate.toLocaleString().split(",")[0]}</p>
-    </li>
-  })
-  return (
-    <>{list}</>
-  )
+  const list = job.map((job) => {
+    return (
+      <li key={job.id}>
+        <p>{job.name}</p>
+        <p>{job.title}</p>
+        <p>{job.responsibility}</p>
+        <p>{job.startDate.toLocaleString().split(",")[0]}</p>
+      </li>
+    );
+  });
+  return <>{list}</>;
 }
 
 function App() {
@@ -42,26 +42,13 @@ function App() {
       schoolYear: "2009",
       schoolId: crypto.randomUUID(),
     },
-    {
-      schoolName: "School of Pwnternet",
-      schoolTitle: "Mechanic of computer Hackworks",
-      schoolYear: "1337",
-      schoolId: crypto.randomUUID(),
-    },
   ]);
   const [job, setJob] = useState([
     {
-      name: 'Random Name Security',
-      title: 'Guard',
-      responsibility: 'Guarding',
-      startDate: '2014-07-01',
-      id: crypto.randomUUID(),
-    },
-    {
-      name: 'Random Name Company',
-      title: 'Tech',
-      responsibility: 'Teching',
-      startDate: '2017-07-01',
+      name: "Random Name Security",
+      title: "Guard",
+      responsibility: "Guarding",
+      startDate: "2014-07-01",
       id: crypto.randomUUID(),
     },
   ]);
@@ -134,9 +121,7 @@ function App() {
     const id = e.target.parentElement.parentElement.dataset.id;
     setJob((prevJob) =>
       prevJob.map((job) =>
-        job.id === id
-          ? { ...job, name: e.target.value }
-          : job
+        job.id === id ? { ...job, name: e.target.value } : job
       )
     );
   };
@@ -145,9 +130,7 @@ function App() {
     const id = e.target.parentElement.parentElement.dataset.id;
     setJob((prevJob) =>
       prevJob.map((job) =>
-        job.id === id
-          ? { ...job, title: e.target.value }
-          : job
+        job.id === id ? { ...job, title: e.target.value } : job
       )
     );
   };
@@ -156,9 +139,7 @@ function App() {
     const id = e.target.parentElement.parentElement.dataset.id;
     setJob((prevJob) =>
       prevJob.map((job) =>
-        job.id === id
-          ? { ...job, responsibility: e.target.value }
-          : job
+        job.id === id ? { ...job, responsibility: e.target.value } : job
       )
     );
   };
@@ -167,9 +148,7 @@ function App() {
     const id = e.target.parentElement.parentElement.dataset.id;
     setJob((prevJob) =>
       prevJob.map((job) =>
-        job.id === id
-          ? { ...job, startDate: e.target.value }
-          : job
+        job.id === id ? { ...job, startDate: e.target.value } : job
       )
     );
   };
@@ -202,19 +181,27 @@ function App() {
         school={school}
         job={job}
       />
-      <button type="button" onClick={handleOpen}>
-        Open Form
-      </button>
-      <button type="button" onClick={handleReset}>
-        Reset
-      </button>
-      <h1>{name}</h1>
-      <ul>
-        <li>{email}</li>
-        <li>{phone}</li>
-        <SchoolList school={school} />
-        <JobList job={job} />
-      </ul>
+      <div className="buttons">
+        <button type="button" onClick={handleOpen}>
+          Open Form
+        </button>
+        <button type="button" onClick={handleReset}>
+          Reset
+        </button>
+      </div>
+      <cvWrapper>
+        <div className="personalInfo">
+          <h1>{name}</h1>
+          <li>{email}</li>
+          <li>{phone}</li>
+        </div>
+        <ul className="schoolInfo">
+          <SchoolList school={school} />
+        </ul>
+        <ul className="jobInfo">
+          <JobList job={job} />
+        </ul>
+      </cvWrapper>
     </>
   );
 }

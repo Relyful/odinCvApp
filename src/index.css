@@ -76,6 +76,15 @@ textarea:not([rows]) {
 
 /* CUSTOM CSS HERE */
 
+body {
+  display: flex;
+  justify-content: center;
+}
+
+#root {
+  min-width: 780px;
+}
+
 li {
   list-style: none;
 }

@@ -77,17 +77,17 @@ export default function ModalForm({
         </fieldset>
         <fieldset>
           <legend>Practical Experience</legend>
-          <JobInfo 
+          <JobInfo
             job={job}
             handleJobName={handleJobName}
             handleJobTitle={handleJobTitle}
             handleJobRespo={handleJobRespo}
             handleJobStartDate={handleJobStartDate}
-            />
+          />
         </fieldset>
         <button type="button" onClick={submitHelper}>
           Submit
-        </button>        
+        </button>
       </form>
     </div>
   );
