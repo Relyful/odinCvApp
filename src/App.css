@@ -19,6 +19,12 @@ fieldset {
   padding: 10px;
 }
 
+.cvWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 750px;
+}
+
 .buttons {
   display: flex;
   justify-content: center;
@@ -31,6 +37,12 @@ fieldset {
   gap: 20px;
   background-color: rgb(0, 174, 255);
   color: white;
+}
+
+.experience {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .personalInfo h1 {
@@ -46,4 +58,29 @@ fieldset {
 
 h2 {
   color: rgb(0, 174, 255);
+  font-size: 2em;
+}
+
+.schoolInfo p, .jobInfo p {
+  color: rgb(82, 82, 82);
+}
+
+.listOfJobs, .listOfSchools {
+  margin-bottom: 20px;
+}
+
+.footer {
+  text-align: center;
+  margin-top: auto; 
+  padding: 10px;
+  background-color: rgb(0, 174, 255);
+  color: white;
+}
+
+.buttons button {
+  padding: 5px;
+  margin: 5px;
+  background-color: rgb(141, 164, 226);
+  border-radius: 7px;
+  border: 1px solid purple;
 }

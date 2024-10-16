@@ -2,15 +2,19 @@ import { useState } from "react";
 import "./App.css";
 import ModalForm from "./components/cvForm";
 import School from "./components/school";
+import Job from "./components/job";
 
 function SchoolList({ school }) {
   const list = school.map((school) => {
     return (
-      <li key={school.schoolId}>
-        <p>{school.schoolName}</p>
-        <p>{school.schoolTitle}</p>
-        <p>{school.schoolYear}</p>
-      </li>
+      <div className="listOfSchools" key={school.schoolId}>
+        <p>School name: </p>
+        {school.schoolName}
+        <p>School title: </p>
+        {school.schoolTitle}
+        <p>School start year: </p>
+        {school.schoolYear}
+      </div>
     );
   });
   return <>{list}</>;
@@ -19,12 +23,16 @@ function SchoolList({ school }) {
 function JobList({ job }) {
   const list = job.map((job) => {
     return (
-      <li key={job.id}>
-        <p>{job.name}</p>
-        <p>{job.title}</p>
-        <p>{job.responsibility}</p>
-        <p>{job.startDate.toLocaleString().split(",")[0]}</p>
-      </li>
+      <div className="listOfJobs" key={job.id}>
+        <p>Job name: </p>
+        {job.name}
+        <p>Job title: </p>
+        {job.title}
+        <p>Job responsibilities: </p>
+        {job.responsibility}
+        <p>Job start date: </p>
+        {job.startDate}
+      </div>
     );
   });
   return <>{list}</>;
@@ -158,6 +166,11 @@ function App() {
     setSchool([...school, new School()]);
   };
 
+  const addEmptyJob = (e) => {
+    e.preventDefault();
+    setJob([...job, new Job()]);
+  }
+
   return (
     <>
       <ModalForm
@@ -175,6 +188,7 @@ function App() {
         handleJobTitle={handleJobTitle}
         handleJobRespo={handleJobRespo}
         handleJobStartDate={handleJobStartDate}
+        addEmptyJob={addEmptyJob}
         nameVal={name}
         emailVal={email}
         phoneVal={phone}
@@ -198,18 +212,17 @@ function App() {
             <p>{phone}</p>
           </div>
         </div>
-        <div className="schoolInfo">
-          <h2>Education</h2>
-          <ul>
+        <div className="experience">
+          <div className="schoolInfo">
+            <h2>Education</h2>
             <SchoolList school={school} />
-          </ul>
-        </div>
-        <div className="jobInfo">
-          <h2>Work Experience</h2>
-          <ul>
+          </div>
+          <div className="jobInfo">
+            <h2>Work Experience</h2>
             <JobList job={job} />
-          </ul>
+          </div>
         </div>
+        <div className="footer">made by Relyful</div>
       </div>
     </>
   );

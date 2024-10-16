@@ -17,6 +17,7 @@ export default function ModalForm({
   handleJobTitle,
   handleJobRespo,
   handleJobStartDate,
+  addEmptyJob,
   nameVal,
   emailVal,
   phoneVal,
@@ -84,6 +85,7 @@ export default function ModalForm({
             handleJobRespo={handleJobRespo}
             handleJobStartDate={handleJobStartDate}
           />
+          <button onClick={addEmptyJob}>New Job</button>
         </fieldset>
         <button type="button" onClick={submitHelper}>
           Submit

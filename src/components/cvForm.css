@@ -18,3 +18,7 @@
   max-height: 95vh;
   overflow: auto;
 }
+
+.cvForm fieldset li {
+  margin-bottom: 15px;
+}

@@ -14,7 +14,7 @@ function JobInfo({
               type="text"
               name="jobName"
               id="jobName"
-              value={job.name}
+              defaultValue={job.name}
               onChange={handleJobName}
             />
           </div>
@@ -24,7 +24,7 @@ function JobInfo({
               type="text"
               name="jobTitle"
               id="jobTitle"
-              value={job.title}
+              defaultValue={job.title}
               onChange={handleJobTitle}
             />
           </div>
@@ -34,7 +34,7 @@ function JobInfo({
               type="text"
               name="jobRespo"
               id="jobRespo"
-              value={job.responsibility}
+              defaultValue={job.responsibility}
               onChange={handleJobRespo}
             />
           </div>
